@@ -49,7 +49,7 @@ const UserInfo = (props: Props) => {
           </h1>
           <div className="flex justify-between">
             <Field
-              className="block w-auto p-1 m-1 bg-[#02300234]"
+              className="block w-auto p-1 m-1 bg-[#02300234] active:bg-[#02300234] selection:bg-[#02300285] target:bg-[#02300234] outline-none placeholder:text-[#02b00274]"
               id="username"
               name="username"
               placeholder="Cameron"
