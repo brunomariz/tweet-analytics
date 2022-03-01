@@ -6,7 +6,7 @@ type Props = {
 
 const InfoCard = (props: Props) => {
   return (
-    <div className="text-left max-w-md m-2 p-1 border-2 rounded-sm border-hacker-green">
+    <div className="text-left max-w-md m-2 p-2 border-[1px] rounded-sm border-hacker-green">
       {props.children}
     </div>
   );
