@@ -26,3 +26,61 @@ h5,
 h6 {
   text-shadow: 3px 1px #14aa1455;
 }
+
+/* @keyframes blink {
+  0% {
+    filter: brightness(100%);
+  }
+  5% {
+    filter: brightness(3%);
+  }
+  10% {
+    filter: brightness(100%);
+  }
+  15% {
+    filter: brightness(50%);
+  }
+  45% {
+    filter: brightness(50%);
+  }
+  50% {
+    filter: brightness(0%);
+  }
+  55% {
+    filter: brightness(100%);
+  }
+  75% {
+    filter: brightness(100%);
+  }
+  80% {
+    filter: brightness(110%);
+  }
+  85% {
+    filter: brightness(90%);
+  }
+  90% {
+    filter: brightness(100%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+} */
+
+svg {
+  display: none;
+}
+
+@keyframes turbulence {
+  from {
+    filter: url(#displacementFilter);
+  }
+  to {
+    filter: url(#displacementFilter2);
+  }
+}
+.squiggle {
+  animation: turbulence 0.2s linear infinite;
+
+  /* filter: brightness(100%); */
+  /* animation: blink 1s ease alternate infinite; */
+}
