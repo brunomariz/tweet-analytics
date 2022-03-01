@@ -9,7 +9,9 @@ import {
   FieldProps,
 } from "formik";
 
-type Props = {};
+type Props = {
+  onData: Function;
+};
 
 interface FormValues {
   username: string;
@@ -37,7 +39,7 @@ const UserInfo = (props: Props) => {
             .then((res) => res.json())
             .then((data) => {
               setData(data);
-              console.log(data);
+              props.onData(data);
             })
             .catch((err) => console.log(err))
             .finally(() => {});
@@ -49,7 +51,7 @@ const UserInfo = (props: Props) => {
           </h1>
           <div className="flex justify-between">
             <Field
-              className="block w-auto p-1 m-1 bg-[#02300234] active:bg-[#02300234] selection:bg-[#02300285] target:bg-[#02300234] outline-none placeholder:text-[#02b00274]"
+              className="block w-auto p-1 m-1 bg-[#02300234] active:bg-[#02300234] selection:bg-[#02300285] target:bg-[#02300234] hover:bg-[#02300234] outline-none placeholder:text-[#02b00274]"
               id="username"
               name="username"
               placeholder="Cameron"

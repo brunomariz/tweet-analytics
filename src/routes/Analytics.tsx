@@ -5,39 +5,34 @@ import UserInfo from "../components/UserInfo";
 
 type Props = {};
 
-type UserAnalytics = {
+type UserData = {
   count: { index: string[]; values: number[] };
   sum: { index: string[]; values: number[] };
   sumOverCount: { index: string[]; values: number[] };
+  id: string;
 };
 
 const Analytics = (props: Props) => {
-  const [data, setData] = useState<UserAnalytics>();
+  const [data, setData] = useState<UserData>();
   const [isFetching, setIsFetching] = useState(true);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/tweet/keywords/1078681221318746113")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => {
-        setIsFetching(false);
-      });
-  }, []);
+  const onData = (data: UserData) => {
+    setData(data);
+    setIsFetching(false);
+  };
 
   return (
     <div className="flex h-screen w-full bg-black text-hacker-green justify-center items-center">
       <div>
-        <UserInfo></UserInfo>
+        <UserInfo onData={onData}></UserInfo>
         {isFetching ? (
-          <div>Fetching...</div>
+          <div>[Holding...]</div>
         ) : (
           <DataList
-            sum={data?.sum || { values: [], index: [] }}
-            count={data?.count || { values: [], index: [] }}
-            sumOverCount={data?.sumOverCount || { values: [], index: [] }}
+            id={data?.id || "1495513434590490629"}
+            // sum={data?.sum || { values: [], index: [] }}
+            // count={data?.count || { values: [], index: [] }}
+            // sumOverCount={data?.sumOverCount || { values: [], index: [] }}
           ></DataList>
         )}
       </div>
