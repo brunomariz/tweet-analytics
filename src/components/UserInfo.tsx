@@ -8,6 +8,7 @@ import {
   Field,
   FieldProps,
 } from "formik";
+import { BACKEND_ROOT } from "../constants";
 // import { backendRoot } from "../constants";
 
 type Props = {
@@ -36,8 +37,6 @@ const UserInfo = (props: Props) => {
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           const username = values.username;
-          // Get backend url root from env variable
-          const BACKEND_ROOT = process.env.REACT_APP_BACKEND_ROOT;
           fetch(`${BACKEND_ROOT}/user/${username}`)
             .then((res) => res.json())
             .then((data) => {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BACKEND_ROOT } from "../constants";
 import InfoCard from "./InfoCard";
 
 type Props = {
@@ -27,8 +28,6 @@ const DataList = (props: Props) => {
   const importantWordsValue: Number[] = data?.sumOverCount.values || [];
 
   useEffect(() => {
-    // Get backend url root from env variable
-    const BACKEND_ROOT = process.env.REACT_APP_BACKEND_ROOT;
     fetch(`${BACKEND_ROOT}/tweet/keywords/${props.id}`)
       .then((res) => res.json())
       .then((data) => {
