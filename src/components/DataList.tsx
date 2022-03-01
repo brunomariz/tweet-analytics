@@ -27,7 +27,9 @@ const DataList = (props: Props) => {
   const importantWordsValue: Number[] = data?.sumOverCount.values || [];
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tweet/keywords/${props.id}`)
+    // Get backend url root from env variable
+    const BACKEND_ROOT = process.env.REACT_APP_BACKEND_ROOT;
+    fetch(`${BACKEND_ROOT}/tweet/keywords/${props.id}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -52,7 +54,7 @@ const DataList = (props: Props) => {
         <div className="m-2">
           {frequentWords.slice(0, 5).map((word, index) => {
             return (
-              <div>
+              <div key={index}>
                 {emojiList[index]}
                 {index + 1}. {word}
               </div>
@@ -65,7 +67,7 @@ const DataList = (props: Props) => {
         <div className="m-2">
           {importantWords.slice(0, 5).map((word, index) => {
             return (
-              <div>
+              <div key={index}>
                 {emojiList[index]}
                 {index + 1}. {word}
               </div>
