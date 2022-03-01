@@ -22,7 +22,7 @@ const Analytics = (props: Props) => {
   };
 
   return (
-    <div className="flex h-full min-h-screen w-full bg-black text-hacker-green justify-center items-top py-10">
+    <div className="flex h-full min-h-screen w-full bg-black text-hacker-green justify-center items-top p-10">
       <div>
         <UserInfo onData={onData}></UserInfo>
         {isFetching ? (
