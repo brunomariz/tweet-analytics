@@ -1,6 +1,6 @@
 {
   "name": "tweet-analytics",
-  "homepage": "https://brunomariz.github.io/twitter-analytics",
+  "homepage": "https://brunomariz.github.io/tweet-analytics",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
