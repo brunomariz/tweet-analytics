@@ -48,10 +48,6 @@ const DataList = (props: Props) => {
         <h4 className="text-base">Frequency: {frequentWordsFrequency[0]}</h4>
       </InfoCard>
       <InfoCard>
-        <h3 className="text-base">Most important keyword:</h3>
-        <div>{importantWords[0]}</div>
-      </InfoCard>
-      <InfoCard>
         <h3 className="text-base">Frequent keywords:</h3>
         <div className="m-2">
           {frequentWords.slice(0, 5).map((word, index) => {
