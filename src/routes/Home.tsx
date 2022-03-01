@@ -1,11 +1,12 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import InfoCard from "../components/InfoCard";
 
 type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <div className="flex h-screen w-full bg-hacker-green justify-center items-center">
+    <div className="flex h-screen w-full bg-black text-hacker-green justify-center items-center">
       <InfoCard>
         <div className="p-2">
           Home Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -16,6 +17,7 @@ const Home = (props: Props) => {
           minus vel nisi sit maiores labore laborum?
         </div>
       </InfoCard>
+      <Navigate to={"/analytics"}></Navigate>
     </div>
   );
 };
