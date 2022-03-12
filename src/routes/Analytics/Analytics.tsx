@@ -6,20 +6,31 @@ import { Holding } from "./../../components/Holding/Holding";
 
 type Props = {};
 
+export enum FetchingStatus {
+  noRequest,
+  pending,
+  complete,
+}
+
 const Analytics = (props: Props) => {
   const [userData, setUserData] = useState<UserData>();
-  const [isFetching, setIsFetching] = useState(true);
+  const [fetchingStatus, setFetchingStatus] = useState<FetchingStatus>(
+    FetchingStatus.noRequest
+  );
 
   const onData = (data: UserData) => {
     setUserData(data);
-    setIsFetching(false);
   };
 
   return (
     <div className="flex h-full min-h-screen w-full bg-black text-hacker-green justify-center items-top p-10">
       <div>
-        <UserForm onData={onData}></UserForm>
-        {isFetching ? (
+        <UserForm
+          onData={onData}
+          setFetchingStatus={setFetchingStatus}
+        ></UserForm>
+        {fetchingStatus == FetchingStatus.noRequest ? null : fetchingStatus ==
+          FetchingStatus.pending ? (
           <Holding />
         ) : (
           <div>

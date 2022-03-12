@@ -1,11 +1,13 @@
 import { Field, Form, Formik } from "formik";
-import React from "react";
+import React, { SetStateAction } from "react";
 import { BACKEND_ROOT } from "../constants";
+import { FetchingStatus } from "../routes/Analytics/Analytics";
 
 // import { backendRoot } from "../constants";
 
 type Props = {
   onData: Function;
+  setFetchingStatus: React.Dispatch<SetStateAction<FetchingStatus>>;
 };
 
 interface FormValues {
@@ -23,13 +25,14 @@ const UserForm = (props: Props) => {
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           const username = values.username;
+          props.setFetchingStatus(FetchingStatus.pending);
           fetch(`${BACKEND_ROOT}/user/${username}`)
             .then((res) => res.json())
             .then((data) => {
               // setData(data);
               console.log(data);
-
               props.onData(data);
+              props.setFetchingStatus(FetchingStatus.complete);
             })
             .catch((err) => console.log(err))
             .finally(() => {});
