@@ -2,16 +2,9 @@ import React, { useState } from "react";
 import DataList from "../../components/DataList";
 import UserForm from "../../components/UserForm";
 import UserInfo from "../../components/UserInfo";
-import "./Analytics.css";
+import { Holding } from "./../../components/Holding/Holding";
 
 type Props = {};
-
-// type UserAnalyticsData = {
-//   count: { index: string[]; values: number[] };
-//   sum: { index: string[]; values: number[] };
-//   sumOverCount: { index: string[]; values: number[] };
-//   id: string;
-// };
 
 const Analytics = (props: Props) => {
   const [userData, setUserData] = useState<UserData>();
@@ -27,9 +20,7 @@ const Analytics = (props: Props) => {
       <div>
         <UserForm onData={onData}></UserForm>
         {isFetching ? (
-          <div>
-            [Holding<span className="ellipsis-loading">...</span>]
-          </div>
+          <Holding />
         ) : (
           <div>
             <UserInfo
