@@ -1,16 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  HashRouter,
-} from "react-router-dom";
+import Analytics from "./routes/Analytics/Analytics";
 import Home from "./routes/Home";
-import Analytics from "./routes/Analytics";
 
 function App() {
   return (
